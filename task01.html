@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+    <style>
+        .img {
+            display: none;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button" type="button">Click Me!</button>
+    <div>
+        <img class="img" src="./assets/img/fox.jpg" alt="fox">
+        <img class="img" src="./assets/img/koala.png" alt="koala">
+        <img class="img" src="./assets/img/lion.png" alt="lion">
+        <img class="img" src="./assets/img/monkey.jpg" alt="monkey">
+        <img class="img" src="./assets/img/simba.jpg" alt="simba">
+        <p></p>
+    </div>
+    <script>
+        let button = document.getElementsByClassName('button')[0];
+        let counter = 0;
+        let myFunction = () => {
+            counter++;
+            let array = document.getElementsByClassName('img');
+
+            if (counter > 0) {
+                for (let i = 0; i < array.length; i++) {
+                    array[i].style.display = "none";
+                }
+            }
+            let num = `${Math.ceil(Math.random() * (array.length - 1))}`
+            let element = array[num];
+
+            element.style.display = "block";
+            document.getElementsByTagName("p")[0].innerText = "Падна ти се снимка No" + (++num) + ":)";
+        }
+        button.addEventListener("click", myFunction);
+
+
+    </script>
+</body>
+
+</html>
